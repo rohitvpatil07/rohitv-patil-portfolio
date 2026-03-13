@@ -1,0 +1,575 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>Rohit V. Patil — Account Management Portfolio | OLIVER 2026</title>
+<link href="https://fonts.googleapis.com/css2?family=Barlow:ital,wght@0,400;0,600;0,700;0,900;1,400&family=Barlow+Condensed:wght@700;900&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+:root{--bk:#080808;--wh:#F5F5F0;--rd:#E8320A;--rd2:#FF5533;--of:#EFEFEA;--gy:#6B6B6B;--lg:#B0B0B0;--cd:#111111;--rl:#222222;--md:#1C1C1C;}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
+html{scroll-behavior:smooth;}
+body{font-family:'Barlow',sans-serif;background:var(--bk);color:var(--wh);overflow-x:hidden;}
+body.jr .au{opacity:0;transform:translateY(28px);transition:opacity .65s cubic-bezier(.22,1,.36,1),transform .65s cubic-bezier(.22,1,.36,1);}
+body.jr .au.in{opacity:1;transform:none;}
+body.jr .sg>*{opacity:0;transform:translateY(18px);transition:opacity .5s ease,transform .5s ease;}
+body.jr .sg.in>*{opacity:1;transform:none;}
+body.jr .sg.in>*:nth-child(1){transition-delay:0s;}body.jr .sg.in>*:nth-child(2){transition-delay:.07s;}
+body.jr .sg.in>*:nth-child(3){transition-delay:.14s;}body.jr .sg.in>*:nth-child(4){transition-delay:.21s;}
+body.jr .sg.in>*:nth-child(5){transition-delay:.28s;}body.jr .sg.in>*:nth-child(6){transition-delay:.35s;}
+/* NAV */
+nav{position:fixed;top:0;left:0;right:0;z-index:90;display:flex;justify-content:space-between;align-items:center;padding:0 4rem;height:60px;background:rgba(8,8,8,.93);backdrop-filter:blur(16px);border-bottom:1px solid var(--rl);}
+.nav-logo{font-family:'Barlow Condensed',sans-serif;font-weight:900;font-size:1.05rem;letter-spacing:.06em;text-transform:uppercase;color:var(--wh);text-decoration:none;}
+.nav-logo em{color:var(--rd);font-style:normal;}
+.nl{display:flex;list-style:none;}
+.nl a{display:block;padding:0 .9rem;height:60px;line-height:60px;font-size:.7rem;font-weight:600;letter-spacing:.1em;text-transform:uppercase;color:var(--lg);text-decoration:none;border-bottom:2px solid transparent;transition:color .2s,border-color .2s;}
+.nl a:hover,.nl a.active{color:var(--rd);border-bottom-color:var(--rd);}
+/* HERO */
+.hero{min-height:100vh;display:grid;grid-template-columns:1.1fr 1fr;padding:8rem 4rem 5rem;gap:4rem;align-items:center;position:relative;overflow:hidden;border-bottom:1px solid var(--rl);}
+.hero-bg{position:absolute;top:0;right:0;width:45%;height:100%;background:linear-gradient(135deg,var(--md) 0%,var(--bk) 100%);clip-path:polygon(18% 0%,100% 0%,100% 100%,0% 100%);z-index:0;}
+.hero-bg::after{content:'';position:absolute;inset:0;background:radial-gradient(ellipse at 40% 30%,rgba(232,50,10,.1) 0%,transparent 60%);}
+.hl,.hr{position:relative;z-index:1;}
+.ey{display:inline-flex;align-items:center;gap:.6rem;font-family:'JetBrains Mono',monospace;font-size:.63rem;letter-spacing:.18em;text-transform:uppercase;color:var(--rd);margin-bottom:1.4rem;}
+.ey::before{content:'//';opacity:.5;}
+.hn{font-family:'Barlow Condensed',sans-serif;font-weight:900;font-size:clamp(3.5rem,6vw,5.8rem);line-height:.95;text-transform:uppercase;margin-bottom:.7rem;}
+.hn span{color:var(--rd);}
+.hr2{font-size:.98rem;color:var(--lg);margin-bottom:1.6rem;line-height:1.6;font-style:italic;}
+.hb{font-size:.9rem;line-height:1.85;color:var(--gy);max-width:46ch;margin-bottom:2.25rem;}
+.hb strong{color:var(--wh);font-weight:500;}
+.btns{display:flex;gap:1rem;flex-wrap:wrap;}
+.btn{display:inline-flex;align-items:center;padding:.75rem 1.6rem;font-size:.73rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;text-decoration:none;border:none;cursor:pointer;transition:transform .15s,background .2s,color .2s;}
+.bf{background:var(--rd);color:var(--wh);}
+.bf:hover{background:var(--rd2);transform:translateY(-2px);}
+.bo{background:transparent;color:var(--wh);border:1px solid rgba(255,255,255,.2);}
+.bo:hover{border-color:var(--rd);color:var(--rd);}
+.kg{display:grid;grid-template-columns:1fr 1fr;gap:1px;background:var(--rl);}
+.kb{background:var(--md);padding:1.75rem 1.5rem;transition:background .25s;}
+.kb:hover{background:#222;}
+.kv{font-family:'Barlow Condensed',sans-serif;font-weight:900;font-size:2.6rem;line-height:1;margin-bottom:.3rem;}
+.kv.r{color:var(--rd);}
+.kl{font-size:.67rem;font-weight:600;letter-spacing:.09em;text-transform:uppercase;color:var(--gy);line-height:1.4;}
+/* TICKER */
+.tkr{background:var(--rd);padding:.6rem 0;overflow:hidden;white-space:nowrap;}
+.ti{display:inline-flex;animation:tk 28s linear infinite;}
+.ti:hover{animation-play-state:paused;}
+@keyframes tk{0%{transform:translateX(0);}100%{transform:translateX(-50%);}}
+.tj{font-family:'Barlow Condensed',sans-serif;font-weight:700;font-size:.76rem;letter-spacing:.12em;text-transform:uppercase;color:var(--wh);padding:0 2rem;display:inline-flex;align-items:center;gap:2rem;}
+.tj::after{content:'◆';font-size:.43rem;opacity:.5;}
+/* SECTION COMMONS */
+section{padding:5.5rem 4rem;}
+.si{max-width:1200px;margin:0 auto;}
+.st{font-family:'JetBrains Mono',monospace;font-size:.63rem;letter-spacing:.2em;text-transform:uppercase;color:var(--rd);margin-bottom:.55rem;display:flex;align-items:center;gap:.5rem;}
+.st::before{content:'//';opacity:.4;}
+.sh{font-family:'Barlow Condensed',sans-serif;font-weight:900;font-size:clamp(1.8rem,3.5vw,2.8rem);text-transform:uppercase;color:var(--wh);margin-bottom:.7rem;line-height:1.05;}
+.sh em{color:var(--rd);font-style:normal;}
+.ss{font-size:.9rem;color:var(--gy);max-width:58ch;margin-bottom:2.75rem;line-height:1.75;}
+/* CAPABILITIES */
+.caps{background:var(--md);}
+.cg{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--rl);}
+.cp{background:var(--bk);padding:2rem 1.75rem;position:relative;overflow:hidden;transition:background .25s;}
+.cp::after{content:'';position:absolute;bottom:0;left:0;width:0;height:2px;background:var(--rd);transition:width .35s;}
+.cp:hover{background:#0E0E0E;}
+.cp:hover::after{width:100%;}
+.cn{font-family:'JetBrains Mono',monospace;font-size:.6rem;color:var(--rd);opacity:.5;letter-spacing:.12em;margin-bottom:.85rem;}
+.ct{font-family:'Barlow Condensed',sans-serif;font-weight:700;font-size:1.05rem;text-transform:uppercase;color:var(--wh);margin-bottom:.55rem;}
+.cd2{font-size:.81rem;color:var(--gy);line-height:1.7;margin-bottom:.85rem;}
+.ctags{display:flex;flex-wrap:wrap;gap:.35rem;}
+.ctag{font-size:.6rem;padding:.2rem .5rem;border:1px solid rgba(232,50,10,.3);color:var(--rd);}
+/* CASE STUDIES */
+.ws{display:flex;flex-direction:column;gap:1px;background:var(--rl);}
+.wc{background:var(--md);display:grid;grid-template-columns:1fr 190px;overflow:hidden;border-left:3px solid transparent;transition:border-color .3s,background .25s;}
+.wc:hover{background:#1A1A1A;border-left-color:var(--rd);}
+.wb{padding:2.25rem 2.75rem;}
+.wt{display:flex;align-items:center;gap:.85rem;margin-bottom:.8rem;}
+.wn{font-family:'JetBrains Mono',monospace;font-size:.6rem;color:var(--lg);letter-spacing:.1em;}
+.wcat{font-size:.6rem;font-weight:700;padding:.2rem .55rem;background:rgba(232,50,10,.15);color:var(--rd);letter-spacing:.08em;text-transform:uppercase;}
+.wtl{font-family:'Barlow Condensed',sans-serif;font-weight:700;font-size:1.35rem;text-transform:uppercase;color:var(--wh);margin-bottom:.7rem;line-height:1.15;}
+.wd{font-size:.84rem;color:var(--gy);line-height:1.8;margin-bottom:1.1rem;max-width:70ch;}
+.wtags{display:flex;flex-wrap:wrap;gap:.35rem;}
+.wtag{font-size:.6rem;padding:.2rem .5rem;border:1px solid var(--rl);color:var(--lg);}
+.wa{padding:2.25rem 1.5rem;background:var(--bk);border-left:1px solid var(--rl);display:flex;flex-direction:column;justify-content:center;gap:1.4rem;}
+.mv{font-family:'Barlow Condensed',sans-serif;font-weight:900;font-size:1.8rem;line-height:1;color:var(--rd);}
+.mv.w{color:var(--wh);}
+.ml{font-size:.6rem;font-weight:600;letter-spacing:.07em;text-transform:uppercase;color:var(--gy);margin-top:.18rem;}
+/* EXPERIENCE */
+.expbg{background:var(--md);}
+.exw{display:grid;grid-template-columns:250px 1fr;gap:0;}
+.etabs{border-right:1px solid var(--rl);display:flex;flex-direction:column;}
+.et{padding:.9rem 1.1rem;background:none;border:none;border-right:2px solid transparent;text-align:left;cursor:pointer;transition:background .15s,border-color .15s;}
+.et:hover{background:rgba(255,255,255,.03);}
+.et.active{border-right-color:var(--rd);background:rgba(232,50,10,.06);}
+.ety{font-family:'JetBrains Mono',monospace;font-size:.6rem;color:var(--lg);letter-spacing:.07em;margin-bottom:.2rem;}
+.etr{font-size:.81rem;font-weight:600;color:var(--wh);margin-bottom:.12rem;}
+.eto{font-size:.7rem;color:var(--gy);}
+.et.active .ety{color:var(--rd);}
+.eps>div{display:none;}
+.eps>div.active{display:block;}
+.eps{padding:0 0 0 2.75rem;}
+.epy{font-family:'JetBrains Mono',monospace;font-size:.66rem;color:var(--rd);letter-spacing:.1em;margin-bottom:.55rem;}
+.epti{font-family:'Barlow Condensed',sans-serif;font-weight:900;font-size:1.5rem;text-transform:uppercase;color:var(--wh);margin-bottom:.22rem;}
+.epog{font-size:.88rem;color:var(--gy);font-style:italic;margin-bottom:1.35rem;}
+.epbl{list-style:none;display:flex;flex-direction:column;gap:.7rem;}
+.epbl li{font-size:.84rem;line-height:1.75;color:var(--gy);padding-left:1.2rem;position:relative;}
+.epbl li::before{content:'▸';position:absolute;left:0;color:var(--rd);font-size:.63rem;top:.27rem;}
+.epkpis{display:flex;gap:.85rem;margin-top:1.6rem;flex-wrap:wrap;}
+.epk{padding:.65rem 1.1rem;border:1px solid rgba(232,50,10,.3);background:rgba(232,50,10,.05);}
+.epkv{font-family:'Barlow Condensed',sans-serif;font-weight:900;font-size:1.25rem;color:var(--rd);}
+.epkl{font-size:.6rem;font-weight:600;letter-spacing:.07em;text-transform:uppercase;color:var(--gy);margin-top:.1rem;}
+/* AI WORK SAMPLES */
+.aiws{background:var(--bk);border-top:1px solid var(--rl);}
+.ai-tabs{display:flex;gap:1px;background:var(--rl);margin-bottom:2.25rem;}
+.atb{flex:1;padding:.9rem 1.1rem;background:var(--md);border:none;cursor:pointer;font-family:'Barlow Condensed',sans-serif;font-weight:700;font-size:.82rem;letter-spacing:.08em;text-transform:uppercase;color:var(--lg);transition:background .2s,color .2s;text-align:center;}
+.atb:hover{background:#1A1A1A;color:var(--wh);}
+.atb.active{background:var(--rd);color:var(--wh);}
+.atp{display:none;}
+.atp.active{display:block;}
+/* Brief builder */
+.bb{background:var(--md);border:1px solid var(--rl);}
+.bbh{padding:1.4rem 2rem;border-bottom:1px solid var(--rl);display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:1rem;}
+.bbt{font-family:'Barlow Condensed',sans-serif;font-weight:900;font-size:1.15rem;text-transform:uppercase;color:var(--wh);letter-spacing:.03em;}
+.bbs{font-size:.75rem;color:var(--gy);margin-top:.18rem;}
+.livebadge{display:inline-flex;align-items:center;gap:.4rem;padding:.28rem .7rem;border:1px solid rgba(232,50,10,.5);font-family:'JetBrains Mono',monospace;font-size:.58rem;letter-spacing:.12em;text-transform:uppercase;color:var(--rd);}
+.livdot{width:5px;height:5px;border-radius:50%;background:var(--rd);animation:blink 2s ease-in-out infinite;}
+@keyframes blink{0%,80%,100%{opacity:.15}40%{opacity:1}}
+.bbb{padding:1.75rem 2rem;}
+.bbf{display:grid;grid-template-columns:1fr 1fr 1fr;gap:.9rem;margin-bottom:1.35rem;}
+.bff{display:flex;flex-direction:column;gap:.35rem;}
+.bff label{font-family:'JetBrains Mono',monospace;font-size:.58rem;letter-spacing:.13em;text-transform:uppercase;color:var(--rd);}
+.bff select{background:var(--bk);border:1px solid var(--rl);color:var(--wh);padding:.6rem .8rem;font-size:.8rem;font-family:'Barlow',sans-serif;appearance:none;outline:none;transition:border-color .2s;width:100%;}
+.bff select:focus{border-color:var(--rd);}
+.bff select option{background:var(--bk);}
+.bbgbtn{width:100%;padding:.85rem;background:var(--rd);border:none;color:var(--wh);font-family:'Barlow Condensed',sans-serif;font-weight:700;font-size:.95rem;text-transform:uppercase;letter-spacing:.1em;cursor:pointer;transition:background .2s;}
+.bbgbtn:hover{background:var(--rd2);}
+.bbgbtn:disabled{opacity:.45;cursor:not-allowed;}
+.bbout{display:none;margin-top:1.35rem;border-top:1px solid var(--rl);padding-top:1.35rem;}
+.bbout.vis{display:block;}
+.bbog{display:grid;grid-template-columns:1fr 1fr;gap:.9rem;}
+.bbok{background:var(--bk);padding:1.1rem;}
+.bbol{font-family:'JetBrains Mono',monospace;font-size:.56rem;letter-spacing:.14em;text-transform:uppercase;color:var(--rd);margin-bottom:.45rem;}
+.bbot{font-size:.82rem;color:var(--wh);line-height:1.75;white-space:pre-wrap;}
+.bbload{text-align:center;padding:1.75rem;}
+.bldots span{display:inline-block;width:5px;height:5px;border-radius:50%;background:var(--rd);margin:0 3px;animation:blink 1.2s ease-in-out infinite;}
+.bldots span:nth-child(2){animation-delay:.2s;}
+.bldots span:nth-child(3){animation-delay:.4s;}
+.bbload p{font-size:.75rem;color:var(--gy);margin-top:.65rem;letter-spacing:.05em;}
+.bberr{background:rgba(232,50,10,.08);border:1px solid rgba(232,50,10,.3);padding:.9rem 1.1rem;font-size:.8rem;color:var(--rd);line-height:1.6;margin-top:1rem;}
+/* Content samples */
+.smgrid{display:grid;grid-template-columns:1fr 1fr;gap:1px;background:var(--rl);}
+.smc{background:var(--md);padding:1.75rem;}
+.sml{font-family:'JetBrains Mono',monospace;font-size:.58rem;letter-spacing:.16em;text-transform:uppercase;color:var(--rd);margin-bottom:.45rem;}
+.smp{font-family:'Barlow Condensed',sans-serif;font-weight:700;font-size:.9rem;text-transform:uppercase;color:var(--wh);margin-bottom:.9rem;letter-spacing:.03em;}
+.smprbox{background:var(--bk);border-left:2px solid var(--rd);padding:.75rem .9rem;margin-bottom:.85rem;}
+.smprl{font-family:'JetBrains Mono',monospace;font-size:.55rem;letter-spacing:.13em;text-transform:uppercase;color:var(--rd);opacity:.6;margin-bottom:.3rem;}
+.smprt{font-size:.75rem;color:var(--lg);line-height:1.6;font-style:italic;}
+.smobox{background:#0E0E0E;border:1px solid rgba(255,255,255,.06);padding:.9rem;}
+.smol{font-family:'JetBrains Mono',monospace;font-size:.55rem;letter-spacing:.13em;text-transform:uppercase;color:var(--lg);opacity:.45;margin-bottom:.3rem;}
+.smot{font-size:.82rem;color:var(--wh);line-height:1.75;white-space:pre-wrap;}
+.smtags{display:flex;flex-wrap:wrap;gap:.3rem;margin-top:.75rem;}
+.smtag{font-size:.58rem;padding:.18rem .45rem;border:1px solid var(--rl);color:var(--lg);}
+/* Midjourney */
+.mjgrid{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--rl);}
+.mjc{background:var(--md);padding:1.6rem;transition:background .2s;}
+.mjc:hover{background:#1A1A1A;}
+.mjtool{font-family:'JetBrains Mono',monospace;font-size:.58rem;letter-spacing:.13em;text-transform:uppercase;color:var(--rd);margin-bottom:.45rem;}
+.mjpur{font-family:'Barlow Condensed',sans-serif;font-weight:700;font-size:.9rem;text-transform:uppercase;color:var(--wh);margin-bottom:.65rem;}
+.mjpr{background:var(--bk);border-left:2px solid rgba(232,50,10,.4);padding:.65rem .8rem;font-size:.73rem;color:var(--lg);line-height:1.6;font-style:italic;}
+.mjnote{font-size:.7rem;color:var(--gy);margin-top:.65rem;line-height:1.5;}
+/* SKILLS */
+.skbg{background:var(--md);}
+.skg{display:grid;grid-template-columns:1fr 1fr;gap:2.75rem;}
+.skgn{font-family:'JetBrains Mono',monospace;font-size:.63rem;letter-spacing:.16em;text-transform:uppercase;color:var(--rd);margin-bottom:1.35rem;}
+.skr{margin-bottom:.9rem;}
+.skrt{display:flex;justify-content:space-between;margin-bottom:.38rem;}
+.skn{font-size:.84rem;color:var(--wh);}
+.skp{font-family:'JetBrains Mono',monospace;font-size:.68rem;color:var(--rd);}
+.sktr{height:2px;background:rgba(255,255,255,.08);}
+.skfi{height:100%;background:linear-gradient(to right,var(--rd),var(--rd2));transform-origin:left;transform:scaleX(0);transition:transform .9s cubic-bezier(.22,1,.36,1);}
+/* CONTACT */
+.ctbg{background:var(--bk);border-top:1px solid var(--rl);}
+.ctw{display:grid;grid-template-columns:1fr 1fr;gap:5rem;align-items:center;}
+.cth{font-family:'Barlow Condensed',sans-serif;font-weight:900;font-size:clamp(2rem,4vw,3.3rem);text-transform:uppercase;line-height:1;margin-bottom:1.35rem;}
+.cth em{color:var(--rd);font-style:normal;}
+.ctsu{font-size:.9rem;color:var(--gy);line-height:1.8;}
+.ctlist{display:flex;flex-direction:column;gap:.65rem;}
+.ctr{display:grid;grid-template-columns:6.5rem 1fr;align-items:center;padding:.85rem 1.1rem;background:var(--md);border-left:2px solid var(--rl);transition:border-color .2s,background .2s;}
+.ctr:hover{border-left-color:var(--rd);background:#1A1A1A;}
+.ctlbl{font-family:'JetBrains Mono',monospace;font-size:.6rem;letter-spacing:.11em;text-transform:uppercase;color:var(--rd);}
+.ctval{font-size:.84rem;color:var(--wh);}
+.ctval a{color:var(--wh);text-decoration:none;}
+.ctval a:hover{color:var(--rd);}
+footer{background:var(--md);padding:1.1rem 4rem;border-top:1px solid var(--rl);display:flex;justify-content:space-between;align-items:center;}
+footer span{font-size:.68rem;color:var(--gy);}
+.flogo{font-family:'Barlow Condensed',sans-serif;font-weight:900;font-size:.88rem;text-transform:uppercase;color:var(--wh);}
+.flogo em{color:var(--rd);font-style:normal;}
+.cdot{width:7px;height:7px;border-radius:50%;background:var(--rd);position:fixed;pointer-events:none;z-index:9999;transform:translate(-50%,-50%);mix-blend-mode:screen;}
+.cring{width:32px;height:32px;border-radius:50%;border:1px solid rgba(232,50,10,.5);position:fixed;pointer-events:none;z-index:9998;transform:translate(-50%,-50%);transition:width .2s,height .2s;}
+@media(max-width:960px){
+nav{padding:0 1.5rem;} .nl{display:none;}
+section{padding:4rem 1.5rem;} .hero{grid-template-columns:1fr;padding:6.5rem 1.5rem 3.5rem;}
+.hero-bg{display:none;} .cg{grid-template-columns:1fr 1fr;} .wc{grid-template-columns:1fr;}
+.wa{border-left:none;border-top:1px solid var(--rl);flex-direction:row;flex-wrap:wrap;padding:1.1rem 1.75rem;}
+.exw{grid-template-columns:1fr;} .etabs{flex-direction:row;overflow-x:auto;border-right:none;border-bottom:1px solid var(--rl);}
+.et{border-right:none;border-bottom:2px solid transparent;white-space:nowrap;} .et.active{border-bottom-color:var(--rd);border-right-color:transparent;}
+.eps{padding:1.75rem 0 0;} .bbf{grid-template-columns:1fr;} .bbog{grid-template-columns:1fr;}
+.smgrid{grid-template-columns:1fr;} .mjgrid{grid-template-columns:1fr;} .skg{grid-template-columns:1fr;}
+.ctw{grid-template-columns:1fr;gap:2.75rem;} footer{padding:1.1rem 1.5rem;flex-direction:column;gap:.4rem;}
+.ai-tabs{flex-direction:column;}
+}
+</style>
+</head>
+<body>
+<div class="cdot" id="cdot"></div>
+<div class="cring" id="cring"></div>
+
+<nav>
+  <a href="#" class="nav-logo">Rohit V. Patil<em>.</em></a>
+  <ul class="nl">
+    <li><a href="#work">Case Studies</a></li>
+    <li><a href="#caps">Capabilities</a></li>
+    <li><a href="#exp">Experience</a></li>
+    <li><a href="#ai">AI Work Samples</a></li>
+    <li><a href="#contact">Contact</a></li>
+  </ul>
+</nav>
+
+<section class="hero" id="top">
+  <div class="hero-bg"></div>
+  <div class="hl">
+    <div class="ey">Account Management Portfolio · 2026</div>
+    <h1 class="hn">Rohit V.<br><span>Patil</span></h1>
+    <p class="hr2">Junior Account Manager · In-House Agency · Beauty &amp; Personal Care</p>
+    <p class="hb">Six years managing client relationships, studio collaboration and multi-channel campaign delivery — ready to bring that energy inside OLIVER's <strong>U-Studio model</strong>. Mumbai-based. AI-fluent. Results-obsessed.</p>
+    <div class="btns">
+      <a href="#work" class="btn bf">View Case Studies</a>
+      <a href="#contact" class="btn bo">Get in Touch</a>
+    </div>
+  </div>
+  <div class="hr">
+    <div class="kg sg">
+      <div class="kb"><div class="kv r">28%</div><div class="kl">YoY Revenue Growth Managed</div></div>
+      <div class="kb"><div class="kv">6+</div><div class="kl">Years Client &amp; Campaign Management</div></div>
+      <div class="kb"><div class="kv r">30%</div><div class="kl">Brand Visibility Uplift — TEFAL</div></div>
+      <div class="kb"><div class="kv">£35k</div><div class="kl">Revenue Built from Zero — ABRO</div></div>
+    </div>
+  </div>
+</section>
+
+<div class="tkr" aria-hidden="true">
+  <div class="ti">
+    <span class="tj">Brief Management</span><span class="tj">Studio Collaboration</span><span class="tj">Client Relationship Management</span><span class="tj">Beauty &amp; Personal Care Brands</span><span class="tj">AI-Augmented Workflows</span><span class="tj">Multi-Project Delivery</span><span class="tj">In-House Agency Model</span><span class="tj">Timings &amp; Revenue Reporting</span><span class="tj">Brief Management</span><span class="tj">Studio Collaboration</span><span class="tj">Client Relationship Management</span><span class="tj">Beauty &amp; Personal Care Brands</span><span class="tj">AI-Augmented Workflows</span><span class="tj">Multi-Project Delivery</span><span class="tj">In-House Agency Model</span><span class="tj">Timings &amp; Revenue Reporting</span>
+  </div>
+</div>
+
+<section class="caps" id="caps">
+  <div class="si">
+    <div class="st au">Core Capabilities</div>
+    <h2 class="sh au">Built for <em>OLIVER's</em> U-Studio model</h2>
+    <p class="ss au">Every competency mapped to the Junior Account Manager brief — client service, studio collaboration, brief ownership, project delivery and AI fluency.</p>
+    <div class="cg sg" id="work">
+      <div class="cp"><div class="cn">01</div><div class="ct">Brief &amp; Project Management</div><div class="cd2">Owning briefs end-to-end — taking client requirements, ensuring studios have everything needed to begin work, managing timing plans and maintaining delivery accountability across concurrent projects.</div><div class="ctags"><span class="ctag">Brief Intake</span><span class="ctag">Timing Plans</span><span class="ctag">Project Ownership</span></div></div>
+      <div class="cp"><div class="cn">02</div><div class="ct">Client Relationship Management</div><div class="cd2">Building trusted, proactive relationships with brand stakeholders — organising and influencing clients, anticipating needs before they become problems and maintaining top-tier service standards.</div><div class="ctags"><span class="ctag">Day-to-Day Contact</span><span class="ctag">Stakeholder Mgmt</span><span class="ctag">Client Trust</span></div></div>
+      <div class="cp"><div class="cn">03</div><div class="ct">Studio Collaboration</div><div class="cd2">Working embedded with creative and digital studio teams — translating briefs into actionable studio directions, managing feedback rounds, reviewing deliverables and maintaining brand compliance.</div><div class="ctags"><span class="ctag">Creative Teams</span><span class="ctag">Design Review</span><span class="ctag">Brand Compliance</span></div></div>
+      <div class="cp"><div class="cn">04</div><div class="ct">Revenue Reporting &amp; Invoicing</div><div class="cd2">Managing operational income with accuracy and timeliness — reporting revenue to senior leadership, tracking billing milestones and ensuring financial accountability across the account portfolio.</div><div class="ctags"><span class="ctag">Revenue Reporting</span><span class="ctag">Billing Management</span><span class="ctag">Financial Accuracy</span></div></div>
+      <div class="cp"><div class="cn">05</div><div class="ct">AI Tools &amp; Digital Workflows</div><div class="cd2">Active daily user of ChatGPT, Midjourney and Jasper — for brief development, content ideation and visual direction. Passionate about The Brandtech Group's AI-powered in-house agency vision.</div><div class="ctags"><span class="ctag">ChatGPT</span><span class="ctag">Midjourney</span><span class="ctag">Jasper</span></div></div>
+      <div class="cp" style="background:rgba(232,50,10,.07);border:1px solid rgba(232,50,10,.2);"><div style="font-family:'JetBrains Mono',monospace;font-size:.6rem;letter-spacing:.12em;text-transform:uppercase;color:var(--rd);margin-bottom:.75rem;">Cranfield University · 2024</div><div style="font-family:'Barlow Condensed',sans-serif;font-weight:900;font-size:1.05rem;text-transform:uppercase;color:var(--rd);margin-bottom:.55rem;">Directors Award Winner</div><div class="cd2">Highest academic distinction in MSc Strategic Marketing — awarded for outstanding excellence across live brand consultancy projects, commercial rigour and strategic thinking. Invited Keynote Speaker, Cranfield 2023.</div></div>
+    </div>
+  </div>
+</section>
+
+<section style="background:var(--bk);padding-top:0;padding-bottom:0;">
+  <div class="si" style="padding:5.5rem 0;">
+    <div class="st au">Selected Work</div>
+    <h2 class="sh au">Account Management — <em>In Action</em></h2>
+    <p class="ss au">Four engagements demonstrating brief ownership, studio collaboration, client relationship management and multi-project delivery.</p>
+    <div class="ws">
+      <div class="wc au"><div class="wb"><div class="wt"><span class="wn">01/04</span><span class="wcat">Campaign &amp; Account Management</span></div><h3 class="wtl">Multi-Channel Campaign Delivery — FootAsylum</h3><p class="wd">Managed the full account and campaign workflow for a high-volume retail brand across social, digital, email and paid channels. Owned the brief process from intake — ensuring the studio had all information required before work began — through to delivery review and final sign-off. Managed timing plans across creative and digital teams, coordinating multiple concurrent deliverables. Reported campaign KPIs to senior stakeholders weekly. Leveraged AI tools to accelerate brief development, maintaining quality while improving throughput. Delivered 28% YoY revenue growth and 12% repeat customer uplift.</p><div class="wtags"><span class="wtag">Brief Ownership</span><span class="wtag">Studio Coordination</span><span class="wtag">Timing Management</span><span class="wtag">Client Reporting</span><span class="wtag">AI Workflows</span></div></div><div class="wa"><div><div class="mv">+28%</div><div class="ml">Revenue Growth</div></div><div><div class="mv w">+12%</div><div class="ml">Repeat Revenue</div></div></div></div>
+      <div class="wc au"><div class="wb"><div class="wt"><span class="wn">02/04</span><span class="wcat">Client Account Management</span></div><h3 class="wtl">Live Client Account Management — DViO Digital</h3><p class="wd">Served as primary day-to-day contact for two client accounts simultaneously — managing briefs, coordinating studio outputs and leading client communication. Took full brief ownership: interrogating requirements, clarifying ambiguities before studio briefing, managing revision rounds and ensuring all deliverables met brand guidelines. Managed multiple projects across websites, email, paid media and social at the same time.</p><div class="wtags"><span class="wtag">Dual Account Management</span><span class="wtag">Brief Interrogation</span><span class="wtag">Studio Briefing</span><span class="wtag">KPI Reporting</span><span class="wtag">Brand Compliance</span></div></div><div class="wa"><div><div class="mv">+9%</div><div class="ml">CTR Uplift</div></div><div><div class="mv w">–20%</div><div class="ml">CPC Reduction</div></div></div></div>
+      <div class="wc au"><div class="wb"><div class="wt"><span class="wn">03/04</span><span class="wcat">Senior Client Delivery</span></div><h3 class="wtl">Strategy Delivered to C-Suite — TEFAL &amp; JACOBS</h3><p class="wd">Led two agency-style client engagements at Cranfield — managing the full project lifecycle from brief intake through to senior stakeholder presentation. For TEFAL, owned the brief, coordinated a multi-disciplinary team and delivered a 360° integrated campaign strategy to senior brand stakeholders — achieving 30% brand visibility growth. For JACOBS, managed a 4-person team across a full brand growth project. Both required meticulous attention to detail, confident client communication and ability to manage multiple moving parts simultaneously.</p><div class="wtags"><span class="wtag">End-to-End Project</span><span class="wtag">Brief Ownership</span><span class="wtag">C-Suite Delivery</span><span class="wtag">Team Coordination</span></div></div><div class="wa"><div><div class="mv">+30%</div><div class="ml">Brand Visibility</div></div><div><div class="mv w">C-Suite</div><div class="ml">Delivery Level</div></div></div></div>
+      <div class="wc au"><div class="wb"><div class="wt"><span class="wn">04/04</span><span class="wcat">Brand, Social &amp; Content</span></div><h3 class="wtl">Brand Built From Zero — ABRO Merchandise</h3><p class="wd">Co-founded ABRO — a youth brand and events company in Mumbai — managing all brand, social content and digital asset production independently. Owned every brief from concept to studio briefing to review and publishing. Managed high-frequency output across social, digital assets and event marketing with strict brand consistency. The closest real-world analogue to OLIVER's U-Studio model: embedded, fast-moving, brand-first, production-accountable. Generated £35,000 in revenue over 4 years.</p><div class="wtags"><span class="wtag">Social Content</span><span class="wtag">Digital Assets</span><span class="wtag">Brand Consistency</span><span class="wtag">Event Marketing</span><span class="wtag">Founder Accountability</span></div></div><div class="wa"><div><div class="mv">£35k</div><div class="ml">Revenue Generated</div></div><div><div class="mv w">4yrs</div><div class="ml">Sustained Delivery</div></div></div></div>
+    </div>
+  </div>
+</section>
+
+<section class="expbg" id="exp">
+  <div class="si">
+    <div class="st au">Career History</div>
+    <h2 class="sh au">Six years. Every role a <em>client brief.</em></h2>
+    <div class="exw au">
+      <div class="etabs">
+        <button class="et active" data-p="e1"><div class="ety">2022–2024</div><div class="etr">Account &amp; Campaign Manager</div><div class="eto">FootAsylum, UK</div></button>
+        <button class="et" data-p="e2"><div class="ety">2023 · Project</div><div class="etr">Account Lead — TEFAL</div><div class="eto">Cranfield University</div></button>
+        <button class="et" data-p="e3"><div class="ety">2023 · Project</div><div class="etr">Account Lead — JACOBS</div><div class="eto">Cranfield University</div></button>
+        <button class="et" data-p="e4"><div class="ety">May–Jul 2022</div><div class="etr">Account Strategy Associate</div><div class="eto">DViO Digital Media</div></button>
+        <button class="et" data-p="e5"><div class="ety">2018–2022</div><div class="etr">Co-Founder &amp; Brand Lead</div><div class="eto">ABRO Merchandise</div></button>
+      </div>
+      <div class="eps">
+        <div id="e1" class="active"><div class="epy">NOV 2022 – APR 2024</div><div class="epti">Account &amp; Campaign Manager</div><div class="epog">FootAsylum · Milton Keynes, UK</div><ul class="epbl"><li>Day-to-day client contact managing high-volume multi-channel campaigns — owning briefs from intake through to delivery across social, digital, email and paid channels.</li><li>Collaborated with creative and digital studio teams daily to manage timing plans, review deliverables and maintain brand compliance across all campaign assets.</li><li>Managed campaign KPI reporting for senior stakeholders, contributing to 28% YoY revenue growth and 12% repeat customer uplift through proactive account management.</li><li>Integrated AI tools (ChatGPT, CRM analytics) into brief and content workflows, improving production turnaround across high-volume digital outputs.</li></ul><div class="epkpis"><div class="epk"><div class="epkv">+28%</div><div class="epkl">Revenue Growth</div></div><div class="epk"><div class="epkv">+12%</div><div class="epkl">Repeat Revenue</div></div></div></div>
+        <div id="e2"><div class="epy">MAY – JUL 2023</div><div class="epti">Account Lead — TEFAL UK</div><div class="epog">Group SEB · Cranfield, UK</div><ul class="epbl"><li>Led full project lifecycle — brief intake, team coordination, timing management and final delivery — for a live 360° campaign consultancy for Group SEB's Tefal UK division.</li><li>Presented integrated campaign strategy directly to senior TEFAL executives, translating brief insights into commercially actionable recommendations.</li><li>Delivered 30% brand visibility growth through structured campaign planning and full-funnel creative rationale.</li></ul><div class="epkpis"><div class="epk"><div class="epkv">+30%</div><div class="epkl">Brand Visibility</div></div></div></div>
+        <div id="e3"><div class="epy">APR – MAY 2023</div><div class="epti">Account Lead — JACOBS International</div><div class="epog">Cranfield University, UK</div><ul class="epbl"><li>Managed a 4-person project team to deliver a full brand growth and market expansion roadmap — overseeing brief ownership, team workload, timing and final stakeholder presentation.</li><li>Coordinated multi-discipline deliverables across strategy, insight and media on time and on brief throughout.</li></ul><div class="epkpis"><div class="epk"><div class="epkv">+15%</div><div class="epkl">Market Share Target</div></div></div></div>
+        <div id="e4"><div class="epy">MAY – JUL 2022</div><div class="epti">Account Strategy Associate</div><div class="epog">DViO Digital Media Ltd. · Pune, India</div><ul class="epbl"><li>Managed two client accounts simultaneously — primary day-to-day contact, brief management, studio coordination and client feedback across websites, email and paid media.</li><li>Tracked and reported performance against KPIs: CTR +9%, CPC –20%, Engagement +13%.</li></ul><div class="epkpis"><div class="epk"><div class="epkv">+9%</div><div class="epkl">CTR Lift</div></div><div class="epk"><div class="epkv">–20%</div><div class="epkl">CPC Reduction</div></div></div></div>
+        <div id="e5"><div class="epy">NOV 2018 – AUG 2022</div><div class="epti">Co-Founder · Brand &amp; Content Lead</div><div class="epog">ABRO Merchandise · Mumbai, India</div><ul class="epbl"><li>Managed all content briefs, digital asset production and social publishing independently — from concept to delivery — for a youth-focused brand across Instagram, WhatsApp and events.</li><li>Owned revenue generation and financial reporting throughout — generating £35,000 in merchandise sales over 4 years with full project profitability accountability.</li></ul><div class="epkpis"><div class="epk"><div class="epkv">£35k</div><div class="epkl">Revenue Built</div></div></div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- AI WORK SAMPLES -->
+<section class="aiws" id="ai">
+  <div class="si">
+    <div class="st au">AI Work Samples</div>
+    <h2 class="sh au">Live AI Capabilities — <em>In Action</em></h2>
+    <p class="ss au">Not just a list of tools — active demonstrations of how I apply AI across the account management workflow. Try the live brief generator, explore real content samples and see the Midjourney visual direction prompts I use with studio teams.</p>
+    <div class="ai-tabs">
+      <button class="atb active" data-t="tab-brief">⚡ Live Brief Generator</button>
+      <button class="atb" data-t="tab-content">✍️ Content Samples</button>
+      <button class="atb" data-t="tab-mj">🎨 Midjourney Prompts</button>
+    </div>
+
+    <div class="atp active" id="tab-brief">
+      <div class="bb">
+        <div class="bbh">
+          <div><div class="bbt">AI Brief Generator — Beauty &amp; Personal Care</div><div class="bbs">Select brand type, campaign objective and channel. Watch AI generate a real creative brief in seconds.</div></div>
+          <div class="livebadge"><span class="livdot"></span>Live · Powered by Claude AI</div>
+        </div>
+        <div class="bbb">
+          <div class="bbf">
+            <div class="bff"><label>Brand Type</label>
+              <select id="bb-brand">
+                <option value="luxury skincare">Luxury Skincare</option>
+                <option value="mass market personal care">Mass Market Personal Care</option>
+                <option value="clean beauty / sustainable">Clean Beauty / Sustainable</option>
+                <option value="men's grooming">Men's Grooming</option>
+                <option value="haircare">Haircare</option>
+                <option value="body care">Body Care</option>
+              </select></div>
+            <div class="bff"><label>Campaign Objective</label>
+              <select id="bb-obj">
+                <option value="new product launch">New Product Launch</option>
+                <option value="brand awareness">Brand Awareness</option>
+                <option value="seasonal campaign">Seasonal Campaign</option>
+                <option value="influencer activation">Influencer Activation</option>
+                <option value="social media content series">Social Content Series</option>
+                <option value="brand repositioning">Brand Repositioning</option>
+              </select></div>
+            <div class="bff"><label>Primary Channel</label>
+              <select id="bb-ch">
+                <option value="Instagram and Reels">Instagram &amp; Reels</option>
+                <option value="YouTube video production">YouTube</option>
+                <option value="digital display and OOH">Digital Display &amp; OOH</option>
+                <option value="email and CRM">Email &amp; CRM</option>
+                <option value="TikTok">TikTok</option>
+                <option value="integrated 360 campaign">Integrated 360°</option>
+              </select></div>
+          </div>
+          <button class="bbgbtn" id="bb-btn">⚡ Generate Creative Brief</button>
+          <div class="bbout" id="bb-out">
+            <div class="bbload" id="bb-load" style="display:none;"><div class="bldots"><span></span><span></span><span></span></div><p>Generating brief — AI at work...</p></div>
+            <div id="bb-res"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="atp" id="tab-content">
+      <div class="smgrid">
+        <div class="smc"><div class="sml">AI Content Sample · 01</div><div class="smp">Instagram Caption — Luxury Skincare Launch</div><div class="smprbox"><div class="smprl">ChatGPT Prompt Used</div><div class="smprt">"Write 3 Instagram caption variants for a luxury serum launch targeting Indian women 28–40. Brand voice: sophisticated, aspirational but not cold. Include a soft CTA. No hashtag spam."</div></div><div class="smobox"><div class="smol">AI Output (Selected Variant)</div><div class="smot">Your skin has been waiting for this.
+
+Introducing [SERUM NAME] — 12 active botanicals, one ritual. Morning or night, it's the step your skin has earned.
+
+Because real radiance isn't rushed.
+
+Discover the full ritual → link in bio.</div></div><div class="smtags"><span class="smtag">ChatGPT</span><span class="smtag">Copy Variants</span><span class="smtag">Tone of Voice</span><span class="smtag">Beauty Brand</span></div></div>
+        <div class="smc"><div class="sml">AI Content Sample · 02</div><div class="smp">Email Subject Lines — Seasonal Campaign</div><div class="smprbox"><div class="smprl">ChatGPT Prompt Used</div><div class="smprt">"Generate 8 email subject lines for a monsoon skincare campaign. Mix curiosity-driven, benefit-led and urgency styles. Under 45 characters. Brand: accessible, friendly, science-backed."</div></div><div class="smobox"><div class="smol">AI Output (Top 3 Selected)</div><div class="smot">1. "Your skin + monsoon season: sorted."
+2. "The humidity fix you didn't know you needed"
+3. "New in: weatherproof skincare. Really."</div></div><div class="smtags"><span class="smtag">ChatGPT</span><span class="smtag">Email Marketing</span><span class="smtag">A/B Testing</span><span class="smtag">Seasonal</span></div></div>
+        <div class="smc"><div class="sml">AI Content Sample · 03</div><div class="smp">Reels Brief — Haircare Video Series</div><div class="smprbox"><div class="smprl">Jasper Prompt Used</div><div class="smprt">"Write a 4-part Reels content series brief for a haircare brand launching a repair range. Each part follows a storytelling arc. Include hook, message, CTA and visual direction note per part."</div></div><div class="smobox"><div class="smol">AI Output (Part 1 of 4)</div><div class="smot">Part 1 — THE PROBLEM
+Hook: "This is what damaged hair looks like under a microscope."
+Message: Introduce the damage story. No solutions yet — just recognition.
+CTA: "Does this sound like yours? Watch part 2."
+Visual note: Macro shot, clinical lighting, science-forward feel.</div></div><div class="smtags"><span class="smtag">Jasper</span><span class="smtag">Reels Series</span><span class="smtag">Storytelling Arc</span><span class="smtag">Studio Brief</span></div></div>
+        <div class="smc"><div class="sml">AI Content Sample · 04</div><div class="smp">Brief Interrogation — Catching Studio Gaps</div><div class="smprbox"><div class="smprl">ChatGPT Prompt Used</div><div class="smprt">"Act as a senior account manager. Review this brief and identify any gaps or missing info that would prevent the studio starting work confidently. List as questions."</div></div><div class="smobox"><div class="smol">AI Output (Gap Analysis)</div><div class="smot">Before briefing the studio, clarify:
+1. Is there a mandatory product shot, or is lifestyle-only acceptable?
+2. What skin tone range must be represented in casting?
+3. Are there competitor brands the visuals must not reference?
+4. Is the tagline locked, or can copy be explored?
+5. What is the exact safe zone for logo placement?</div></div><div class="smtags"><span class="smtag">ChatGPT</span><span class="smtag">Brief Interrogation</span><span class="smtag">Studio Prep</span><span class="smtag">Account Management</span></div></div>
+      </div>
+    </div>
+
+    <div class="atp" id="tab-mj">
+      <p style="font-size:.86rem;color:var(--gy);line-height:1.75;margin-bottom:1.75rem;max-width:68ch;">Real Midjourney prompts I use to explore visual territories and communicate creative direction to studio teams — getting client and studio to a shared visual starting point before any paid asset is produced.</p>
+      <div class="mjgrid">
+        <div class="mjc"><div class="mjtool">Midjourney v6 · Visual Direction</div><div class="mjpur">Luxury Skincare — Campaign Mood</div><div class="mjpr">"Minimal luxury skincare flatlay, glass dropper bottle, soft morning light, marble surface, fresh botanicals, editorial photography style, muted cream and sage palette, Vogue aesthetic, 4k --ar 4:5 --style raw"</div><div class="mjnote">Used to establish visual territory before studio briefing on a serum launch — client approved direction without a paid photography day.</div></div>
+        <div class="mjc"><div class="mjtool">Midjourney v6 · Casting Direction</div><div class="mjpur">Personal Care — Inclusive Campaign</div><div class="mjpr">"Natural beauty portrait, South Asian woman 30s, radiant skin, no-makeup aesthetic, soft diffused studio light, warm tones, authentic expression, beauty campaign photography, clean background --ar 3:4 --style raw"</div><div class="mjnote">Shared with client to align on casting direction and skin tone representation before the photographer brief was written.</div></div>
+        <div class="mjc"><div class="mjtool">Midjourney v6 · Packaging Brief</div><div class="mjpur">Clean Beauty — Sustainable Packaging</div><div class="mjpr">"Eco-friendly skincare packaging, recycled kraft paper texture, minimalist botanical illustration, earthy terracotta and forest green palette, sustainable beauty brand, premium feel --ar 1:1"</div><div class="mjnote">Used to communicate the sustainable-premium tension to the design studio before packaging brief was finalised.</div></div>
+        <div class="mjc"><div class="mjtool">Midjourney v6 · Social Content</div><div class="mjpur">Haircare — Reels Visual Style</div><div class="mjpr">"Aesthetic hair transformation video still, glossy healthy hair, warm golden hour backlight, slow motion feel, clean bathroom setting, aspirational but relatable, Instagram Reels --ar 9:16 --style raw"</div><div class="mjnote">Given to videographer as visual benchmark — colour grade, lighting and composition locked before the shoot day.</div></div>
+        <div class="mjc"><div class="mjtool">Midjourney v6 · Campaign Concept</div><div class="mjpur">Men's Grooming — Brand Relaunch</div><div class="mjpr">"Modern masculine grooming campaign, man in 30s, clean confident aesthetic, urban bathroom setting, structured product lineup, matte black and copper palette, high contrast editorial lighting --ar 4:5"</div><div class="mjnote">Used in a repositioning presentation to visualise the brand shift — approved by client in the same meeting.</div></div>
+        <div class="mjc" style="background:rgba(232,50,10,.07);border:1px solid rgba(232,50,10,.2);"><div class="mjtool" style="opacity:1;">How I Use Midjourney</div><div class="mjpur" style="color:var(--rd);">Visual Direction → Studio Clarity</div><div style="font-size:.78rem;color:var(--gy);line-height:1.7;margin-top:.4rem;">I use Midjourney before briefing the studio — not to replace design, but to get client and creative team to a shared visual starting point faster. It cuts ambiguity, reduces revision rounds and means the studio starts with confidence instead of guesswork.</div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="skbg" id="skills">
+  <div class="si">
+    <div class="st au">Capabilities</div>
+    <h2 class="sh au">Skills &amp; <em>Tools</em></h2>
+    <div class="skg au">
+      <div>
+        <div class="skgn">Account &amp; Project Management</div>
+        <div class="skr"><div class="skrt"><span class="skn">Client Relationship Management</span><span class="skp">93%</span></div><div class="sktr"><div class="skfi" data-w="0.93"></div></div></div>
+        <div class="skr"><div class="skrt"><span class="skn">Brief &amp; Project Ownership</span><span class="skp">92%</span></div><div class="sktr"><div class="skfi" data-w="0.92"></div></div></div>
+        <div class="skr"><div class="skrt"><span class="skn">Studio Collaboration &amp; Review</span><span class="skp">90%</span></div><div class="sktr"><div class="skfi" data-w="0.90"></div></div></div>
+        <div class="skr"><div class="skrt"><span class="skn">Timing &amp; Workload Management</span><span class="skp">88%</span></div><div class="sktr"><div class="skfi" data-w="0.88"></div></div></div>
+        <div class="skr"><div class="skrt"><span class="skn">Revenue Reporting &amp; Invoicing</span><span class="skp">85%</span></div><div class="sktr"><div class="skfi" data-w="0.85"></div></div></div>
+      </div>
+      <div>
+        <div class="skgn">Digital, AI &amp; Creative Tools</div>
+        <div class="skr"><div class="skrt"><span class="skn">AI Tools (ChatGPT, Midjourney, Jasper)</span><span class="skp">90%</span></div><div class="sktr"><div class="skfi" data-w="0.90"></div></div></div>
+        <div class="skr"><div class="skrt"><span class="skn">Social Media &amp; Content Production</span><span class="skp">92%</span></div><div class="sktr"><div class="skfi" data-w="0.92"></div></div></div>
+        <div class="skr"><div class="skrt"><span class="skn">Adobe Creative Suite</span><span class="skp">80%</span></div><div class="sktr"><div class="skfi" data-w="0.80"></div></div></div>
+        <div class="skr"><div class="skrt"><span class="skn">Microsoft Office Suite</span><span class="skp">92%</span></div><div class="sktr"><div class="skfi" data-w="0.92"></div></div></div>
+        <div class="skr"><div class="skrt"><span class="skn">GA4 &amp; Campaign Analytics</span><span class="skp">88%</span></div><div class="sktr"><div class="skfi" data-w="0.88"></div></div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="ctbg" id="contact">
+  <div class="si">
+    <div class="ctw">
+      <div><h2 class="cth au">Ready to be inside<br><em>OLIVER.</em></h2><p class="ctsu au">Mumbai-based, immediately available, AI-fluent and genuinely excited about the U-Studio model. Let's talk about how I can be a safe, proactive pair of hands on your beauty accounts from day one.</p></div>
+      <div class="ctlist sg">
+        <div class="ctr"><span class="ctlbl">Email</span><span class="ctval"><a href="mailto:rohitvijaypatil2@gmail.com">rohitvijaypatil2@gmail.com</a></span></div>
+        <div class="ctr"><span class="ctlbl">Phone</span><span class="ctval">+91 8169585896</span></div>
+        <div class="ctr"><span class="ctlbl">LinkedIn</span><span class="ctval"><a href="https://www.linkedin.com/in/rohitpatil2/" target="_blank">linkedin.com/in/rohitpatil2</a></span></div>
+        <div class="ctr"><span class="ctlbl">Location</span><span class="ctval">Mumbai, India — Available Immediately</span></div>
+        <div class="ctr"><span class="ctlbl">Education</span><span class="ctval">MSc Strategic Marketing · Cranfield · Directors Award 2024</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <span class="flogo">Rohit V. Patil<em>.</em></span>
+  <span>Account Management Portfolio 2026</span>
+  <span>rohitvijaypatil2@gmail.com</span>
+</footer>
+
+<script>
+document.body.classList.add('jr');
+
+// Cursor
+const cd=document.getElementById('cdot'),cr=document.getElementById('cring');
+let mx=0,my=0,rx=0,ry=0;
+document.addEventListener('mousemove',e=>{mx=e.clientX;my=e.clientY;});
+(function loop(){cd.style.left=mx+'px';cd.style.top=my+'px';rx+=(mx-rx)*.1;ry+=(my-ry)*.1;cr.style.left=rx+'px';cr.style.top=ry+'px';requestAnimationFrame(loop);})();
+document.querySelectorAll('a,button,.wc,.cp,.kb').forEach(el=>{
+  el.addEventListener('mouseenter',()=>{cr.style.width='50px';cr.style.height='50px';cr.style.borderColor='rgba(232,50,10,.8)';});
+  el.addEventListener('mouseleave',()=>{cr.style.width='32px';cr.style.height='32px';cr.style.borderColor='rgba(232,50,10,.5)';});
+});
+
+// Observers
+const io=new IntersectionObserver(es=>{es.forEach(e=>{if(!e.isIntersecting)return;const el=e.target;setTimeout(()=>el.classList.add('in'),parseInt(el.dataset.d||0));io.unobserve(el);});},{threshold:.1});
+document.querySelectorAll('.au').forEach((el,i)=>{el.dataset.d=(i%4)*75;io.observe(el);});
+const ios=new IntersectionObserver(es=>{es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');ios.unobserve(e.target);}});},{threshold:.1});
+document.querySelectorAll('.sg').forEach(el=>ios.observe(el));
+const iosk=new IntersectionObserver(es=>{es.forEach(e=>{if(!e.isIntersecting)return;e.target.querySelectorAll('.skfi').forEach((b,i)=>{setTimeout(()=>{b.style.transform=`scaleX(${b.dataset.w})`;},i*100+200);});iosk.unobserve(e.target);});},{threshold:.3});
+document.querySelectorAll('.skg').forEach(el=>iosk.observe(el));
+
+// Exp tabs
+document.querySelectorAll('.et').forEach(btn=>{
+  btn.addEventListener('click',()=>{
+    document.querySelectorAll('.et').forEach(b=>b.classList.remove('active'));
+    document.querySelectorAll('.eps>div').forEach(p=>p.classList.remove('active'));
+    btn.classList.add('active');
+    const t=document.getElementById(btn.dataset.p);if(t)t.classList.add('active');
+  });
+});
+
+// AI work sample tabs
+document.querySelectorAll('.atb').forEach(btn=>{
+  btn.addEventListener('click',()=>{
+    document.querySelectorAll('.atb').forEach(b=>b.classList.remove('active'));
+    document.querySelectorAll('.atp').forEach(p=>p.classList.remove('active'));
+    btn.classList.add('active');
+    const t=document.getElementById(btn.dataset.t);if(t)t.classList.add('active');
+  });
+});
+
+// Nav active
+const secs=document.querySelectorAll('section[id]');
+const navAs=document.querySelectorAll('.nl a');
+window.addEventListener('scroll',()=>{
+  let cur='';secs.forEach(s=>{if(window.scrollY>=s.offsetTop-100)cur=s.id;});
+  navAs.forEach(a=>a.classList.toggle('active',a.getAttribute('href')==='#'+cur));
+},{passive:true});
+
+// Live Brief Generator
+document.getElementById('bb-btn').addEventListener('click', async ()=>{
+  const brand   = document.getElementById('bb-brand').value;
+  const obj     = document.getElementById('bb-obj').value;
+  const channel = document.getElementById('bb-ch').value;
+  const btn     = document.getElementById('bb-btn');
+  const outDiv  = document.getElementById('bb-out');
+  const loadDiv = document.getElementById('bb-load');
+  const resDiv  = document.getElementById('bb-res');
+
+  btn.disabled = true;
+  btn.textContent = 'Generating...';
+  outDiv.classList.add('vis');
+  loadDiv.style.display = 'block';
+  resDiv.innerHTML = '';
+
+  const prompt = `You are a senior account manager at an in-house creative agency specialising in beauty and personal care brands. Generate a concise, professional creative brief for the following:
+
+Brand Type: ${brand}
+Campaign Objective: ${obj}
+Primary Channel: ${channel}
+
+Return ONLY a JSON object (no markdown, no code fences) with exactly these 6 keys:
+{
+  "campaign_title": "Short punchy campaign name",
+  "target_audience": "2-3 sentence audience description including demographics, psychographics and key insights",
+  "key_message": "The single most important thing the audience should think/feel/do after seeing this campaign",
+  "creative_direction": "3-4 sentences on visual style, tone, mood and aesthetic direction for the studio",
+  "deliverables": "Comma-separated list of specific assets needed for ${channel}",
+  "success_metric": "The primary KPI and how it will be measured"
+}`;
+
+  try {
+    const resp = await fetch('https://api.anthropic.com/v1/messages',{
+      method:'POST',
+      headers:{'Content-Type':'application/json'},
+      body: JSON.stringify({
+        model:'claude-sonnet-4-20250514',
+        max_tokens:1000,
+        messages:[{role:'user',content:prompt}]
+      })
+    });
+    const data = await resp.json();
+    const raw = data.content?.find(b=>b.type==='text')?.text || '';
+    const clean = raw.replace(/```json|```/g,'').trim();
+    const brief = JSON.parse(clean);
+
+    loadDiv.style.display = 'none';
+    resDiv.innerHTML = `
+      <div class="bbog">
+        <div class="bbok"><div class="bbol">Campaign Title</div><div class="bbot">${brief.campaign_title}</div></div>
+        <div class="bbok"><div class="bbol">Target Audience</div><div class="bbot">${brief.target_audience}</div></div>
+        <div class="bbok"><div class="bbol">Key Message</div><div class="bbot">${brief.key_message}</div></div>
+        <div class="bbok"><div class="bbol">Creative Direction</div><div class="bbot">${brief.creative_direction}</div></div>
+        <div class="bbok"><div class="bbol">Deliverables for ${channel}</div><div class="bbot">${brief.deliverables}</div></div>
+        <div class="bbok"><div class="bbol">Success Metric / KPI</div><div class="bbot">${brief.success_metric}</div></div>
+      </div>
+      <p style="font-size:.7rem;color:var(--gy);margin-top:1rem;font-family:'JetBrains Mono',monospace;letter-spacing:.06em;">Generated live · ${brand} · ${obj} · ${channel}</p>`;
+  } catch(err) {
+    loadDiv.style.display = 'none';
+    resDiv.innerHTML = `<div class="bberr">Brief generation failed — ${err.message}. Please try again.</div>`;
+  }
+  btn.disabled = false;
+  btn.textContent = '⚡ Generate Another Brief';
+});
+</script>
+</body>
+</html>
